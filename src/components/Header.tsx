@@ -107,8 +107,13 @@ const Header = () => {
                             <div className="relative p-6 bg-gradient-to-br from-cham-pink-400 to-cham-pink-500 text-white">
                                 {/* Close button */}
                                 <button
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setIsMenuOpen(false);
+                                    }}
+                                    className="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors z-50"
                                 >
                                     <X className="w-5 h-5 text-white" />
                                 </button>
@@ -152,7 +157,7 @@ const Header = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </header>
+        </header >
     );
 };
 
